@@ -67,7 +67,7 @@ public class ThereAndBackAgain
 		Hobbit Bilbo = new Hobbit("Bilbo");
 		Wizard Gandalf = new Wizard("Gandalf", "Grey");
 		for(int i = 0; i < dwarfNames.length; i++) {
-		Dwarf dwarfNames1[i] = new Dwarf(dwarfNames1[i]); // I dont understand this, I tried to cast it but it didnt work
+			party.add(new Dwarf(""+dwarfNames[i]+""));// I dont understand this, I tried to cast it but it didnt work
 		}
 	
 	}
@@ -86,7 +86,7 @@ public class ThereAndBackAgain
             trav.travel(miles);
         }
         for(Traveler trav: party) {
-        	 String oneTravel = trav.getName()+ " has traveled "+trav.getDistanceTraveled()+" miles";
+        	 String oneTravel = trav.getName()+ " has traveled "+trav.getDistanceTraveled()+" miles \n";
         	 allTraveled += oneTravel; //This will most likely produce one line make it so it makes it all serpate
         }
 		return allTraveled;

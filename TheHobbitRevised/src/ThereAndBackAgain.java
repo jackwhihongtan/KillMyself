@@ -1,4 +1,6 @@
+import java.sql.Array;
 import java.util.ArrayList;
+
 
 public class ThereAndBackAgain 
 {
@@ -9,7 +11,13 @@ public class ThereAndBackAgain
 		Hobbit frodo = new Hobbit("Frodo");
 		Hobbit sam = new Hobbit("Sam");
 		Dwarf gimli = new Dwarf("Gimli");
-		
+		  Traveler[] party1= {frodo, sam, gimli};
+	        for(Traveler trav: party1) {
+	            trav.travel(50);
+	        }
+	        for(Traveler trav: party1) {
+	        	 System.out.println(trav.getName()+ " has traveled "+trav.getDistanceTraveled()+" miles");
+	        }
 		// Create a traveling party called party1 by creating an array of Travelers 
 		// and filling it with frodo, sam, and gimli
 		// Then, use a loop to make all travelers go a distance of 50 miles  
@@ -32,14 +40,15 @@ public class ThereAndBackAgain
 				               "Oin", "Gloin", "Bifur", "Bofur", "Bombur", "Thorin"};
 
 		// Make a new ArrayList to hold a 2nd party of Travelers called party2:
+		ArrayList<Traveler> patry2 = new ArrayList<Traveler>();
 		
 		
 		// Call the createParty method and pass it party2 and the dwarfNames array.
-		
+		createParty(patry2, dwarfNames);
 		
 		// Finally, call the allTravel method passing it party2 and 100 (representing
 		// the 100 miles that party2 has traveled together.  
-		
+		allTravel(patry2, 100);
 
 
 		
@@ -54,8 +63,12 @@ public class ThereAndBackAgain
 	// dwarf names. This method will always add a new Hobbit named "Bilbo" and a      
 	// new Wizard named "Gandalf" whose color is "Grey" to the ArrayList.
 	// Then it uses a loop to add all the dwarves from the String array to the party.
-	public static void createParty(ArrayList<Traveler> party, String[] dwarfNames)
-	{	
+	public static void createParty(ArrayList<Traveler> party, String[] dwarfNames){	
+		Hobbit Bilbo = new Hobbit("Bilbo");
+		Wizard Gandalf = new Wizard("Gandalf", "Grey");
+		for(int i = 0; i < dwarfNames.length; i++) {
+		Dwarf dwarfNames1[i] = new Dwarf(dwarfNames1[i]); // I dont understand this, I tried to cast it but it didnt work
+		}
 	
 	}
 	
@@ -67,8 +80,15 @@ public class ThereAndBackAgain
 	//     Gandalf the grey has traveled 300 miles
 	//     fili has traveled 100 miles
 	//     kili has traveled 100 miles
-	public static String allTravel(ArrayList<Traveler> party, int miles)
-	{
-		return "";
+	public static String allTravel(ArrayList<Traveler> party, int miles){
+		String allTraveled = "";
+		for(Traveler trav: party) {
+            trav.travel(miles);
+        }
+        for(Traveler trav: party) {
+        	 String oneTravel = trav.getName()+ " has traveled "+trav.getDistanceTraveled()+" miles";
+        	 allTraveled += oneTravel; //This will most likely produce one line make it so it makes it all serpate
+        }
+		return allTraveled;
 	}
 }

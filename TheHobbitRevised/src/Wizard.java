@@ -12,18 +12,17 @@ public class Wizard extends Traveler
 	
 	private String color;
 	
-	public Wizard(String name, String color)
-	{
-	
-	}
-	
-	public void travel(int miles)
-	{
+	public Wizard(String name, String color){
+		super(name);
+		this.color = color;
 		
 	}
 	
-	public String getName()
-	{
-		
+	public void travel(int miles){
+		 = super.getDistanceTraveled() + (3* miles);
+	}
+	
+	public String getName(){
+		return "
 	}
 }

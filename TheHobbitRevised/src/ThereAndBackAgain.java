@@ -64,10 +64,10 @@ public class ThereAndBackAgain
 	// new Wizard named "Gandalf" whose color is "Grey" to the ArrayList.
 	// Then it uses a loop to add all the dwarves from the String array to the party.
 	public static void createParty(ArrayList<Traveler> party, String[] dwarfNames){	
-		Hobbit Bilbo = new Hobbit("Bilbo");
-		Wizard Gandalf = new Wizard("Gandalf", "Grey");
+		party.add(new Hobbit("Bilbo"));
+		party.add(new Wizard("Gandalf", "Grey"));
 		for(int i = 0; i < dwarfNames.length; i++) {
-			party.add(new Dwarf(""+dwarfNames[i]+""));// I dont understand this, I tried to cast it but it didnt work
+			party.add(new Dwarf(dwarfNames[i])); //works now 
 		}
 	
 	}
@@ -87,7 +87,7 @@ public class ThereAndBackAgain
         }
         for(Traveler trav: party) {
         	 String oneTravel = trav.getName()+ " has traveled "+trav.getDistanceTraveled()+" miles \n";
-        	 allTraveled += oneTravel; //This will most likely produce one line make it so it makes it all serpate
+        	 allTraveled += oneTravel; //This will most likely produce one line make it so it makes it all serpate DID IT
         }
 		return allTraveled;
 	}

@@ -18,6 +18,8 @@ public class ThereAndBackAgain
 	        for(Traveler trav: party1) {
 	        	 System.out.println(trav.getName()+ " has traveled "+trav.getDistanceTraveled()+" miles");
 	        }
+	        
+	     
 		// Create a traveling party called party1 by creating an array of Travelers 
 		// and filling it with frodo, sam, and gimli
 		// Then, use a loop to make all travelers go a distance of 50 miles  
@@ -48,8 +50,8 @@ public class ThereAndBackAgain
 		
 		// Finally, call the allTravel method passing it party2 and 100 (representing
 		// the 100 miles that party2 has traveled together.  
-		allTravel(patry2, 100);
-
+		System.out.println(allTravel(patry2, 100));
+			
 
 		
 		

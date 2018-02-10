@@ -4,10 +4,11 @@
  * Provide a constructor and the methods required by its abstract superclass.  
  */
 
-public class Cylinder 
-{
-	
-	
+public class Cylinder {
+	private int radius;
+		public Cylinder(int height) {
+			super()
+		}
 	
 	
 }

@@ -10,9 +10,8 @@
  */
 
 
-public class Prism  
-{
-
+public class Prism {
+	
 	
 	
 }

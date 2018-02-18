@@ -4,8 +4,18 @@
  * Provide a constructor and the methods required by its abstract superclass.  
  */
 
-public class RectangularPrism 
-{
+public class RectangularPrism extends Prism  {
+	private int length;
+	private int width;
 	
+	public RectangularPrism(int height,int length, int width) {
+		super(height);
+		this.length = length;
+		this.width = width;
+		public double calcPerimeter() {
+			return (length * 4.0) + (width * 4);
+		}
+		
+	}
 }
 

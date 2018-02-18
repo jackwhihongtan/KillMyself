@@ -10,10 +10,22 @@
  */
 
 
-public class TriangularPrism 
-{
+public class TriangularPrism extends Prism{
+	private int sideA;
+	private int sideB;
+	private int sideC;
 	
-	
-	
-	
+	public TriangularPrism(int height, int sideA, int sideB, int sideC ) {
+		super(height);
+		this.sideA = sideA;
+		this.sideB = sideB;
+		this.sideC = sideC;
+	}	
+	public double calcAreaOfBase() { //area of base of triangle Heron's formula
+		double S = calcPerimeter();
+		return Math.sqrt(S * (S - sideA) * (S - sideB) * (S - sideC));
+	}
+	public double calcPerimeter() {
+		return(sideA + sideB + sideC) * .5;
+	}
 }

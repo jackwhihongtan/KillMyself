@@ -37,6 +37,12 @@ public abstract class Prism {
 	public double getHeight() {
 		return height;
 	}
-	
+	public double roundToo(double answer) {
+		double divisble = answer;
+		answer = answer *10;
+		
+		
+		
+	}
 }
 	

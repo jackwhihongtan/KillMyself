@@ -13,10 +13,10 @@
 
 public class TriangularPrism extends Prism{
 	private int sideA;
-	private double sideB;
-	private int sideC;
+	private int sideB;
+	private double sideC;
 	
-	public TriangularPrism(int height, int sideA, double sideB, int sideC ) {
+	public TriangularPrism(int sideA, int sideB, double sideC, int height ) {
 		super(height);
 		this.sideA = sideA;
 		this.sideB = sideB;

@@ -3,7 +3,7 @@
  *    (because all prisms have a height).
  * Provide a constructor and the methods required by its abstract superclass.  
  */
-
+//Jack Tan 2/21/18
 public class Cylinder extends Prism{
 	private int radius;
 		public Cylinder(int radius, int height) {

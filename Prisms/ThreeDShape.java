@@ -1,5 +1,5 @@
 
-public class ThreeDShape {
+public class ThreeDShape { //Includes werid shapes 
 	private double volume;
 	private double surfaceArea;
 

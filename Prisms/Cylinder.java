@@ -11,13 +11,13 @@ public class Cylinder extends Prism{
 			this.radius = radius;
 		}
 		public double calcAreaOfBase() { //Use area forumla for circle
-			return (3.14 * (radius * radius));
+			return (3.1415 * (radius * radius));
 		}
-		public double calcPerimeter() { //2 circles and a rectanglse add them
-			double Circumfernce = 2 * radius * 3.14;
-			double rectanglePerimeter = height * Circumfernce;
-			return (2 * Circumfernce) + rectanglePerimeter;
+		public double calcPerimeter() { // Find the perimeter of one circle
+			double Circumfernce = 2 * radius * 3.1415;
+			return Circumfernce ;
 		}
+		
 		
 	
 	

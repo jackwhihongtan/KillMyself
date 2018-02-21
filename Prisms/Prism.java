@@ -34,6 +34,9 @@ public abstract class Prism {
 		return ((calcPerimeter() * height) + (calcAreaOfBase() * 2));
 	
 	}
+	public double getHeight() {
+		return height;
+	}
 	
 }
 	

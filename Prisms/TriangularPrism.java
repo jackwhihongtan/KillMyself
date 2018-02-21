@@ -1,3 +1,4 @@
+
 /* Write this concrete (non-abstract) class called TriangularPrism.  
  * It has 3 private fields (sideA, sideB, and sideC).
  * It inherits its height from its superclass, Prism (because all prisms have a height).
@@ -12,20 +13,22 @@
 
 public class TriangularPrism extends Prism{
 	private int sideA;
-	private int sideB;
+	private double sideB;
 	private int sideC;
 	
-	public TriangularPrism(int height, int sideA, int sideB, int sideC ) {
+	public TriangularPrism(int height, int sideA, double sideB, int sideC ) {
 		super(height);
 		this.sideA = sideA;
 		this.sideB = sideB;
 		this.sideC = sideC;
+		
 	}	
 	public double calcAreaOfBase() { //area of base of triangle Heron's formula
-		double S = calcPerimeter();
-		return Math.sqrt(S * (S - sideA) * (S - sideB) * (S - sideC));
+		double S = calcPerimeter() * .5;
+		return Math.sqrt((S * (S - sideA) * (S - sideB) * (S - sideC))); /*Currently My sqrt is 
+	 nt working I need to implent a Math function to make it complie and fix its */
 	}
 	public double calcPerimeter() {
-		return(sideA + sideB + sideC) * .5;
+		return sideA + sideB + sideC;
 	}
 }

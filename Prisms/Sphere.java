@@ -1,4 +1,4 @@
 
-public class Sphere extends Prism  {
+public class Sphere extends ThreeDShape {
 
 }

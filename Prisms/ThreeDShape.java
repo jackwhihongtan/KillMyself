@@ -1,5 +1,5 @@
 
-public class ThreeDShape { //Includes werid shapes 
+public abstract class ThreeDShape { //Includes werid shapes 
 	private double volume;
 	private double surfaceArea;
 
@@ -9,13 +9,9 @@ public class ThreeDShape { //Includes werid shapes
 	}
 
 	// Can you write this code for this class or does it need to be overridden by every subclass?
-	public double calcVolume(){
-	return 0;
-	}
+	public abstract double calcVolume();
 
 	// Can you write this code for this class or does it need to be overridden by every subclass?
-	public double calcSA(){
-	return 0;
-	}
+	public  abstract double calcSA();
 	}
 

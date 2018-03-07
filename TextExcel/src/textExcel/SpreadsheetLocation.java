@@ -4,7 +4,7 @@ package textExcel;
 
 public class SpreadsheetLocation implements Location
 {
-    @Override
+	@Override
     public int getRow()
     {
         // TODO Auto-generated method stub

@@ -1,3 +1,4 @@
+// Jack Tan 3/7/18 2nd Period
 package textExcel;
 
 import java.io.FileNotFoundException;
@@ -8,8 +9,16 @@ import java.util.Scanner;
 public class TextExcel
 {
 
-	public static void main(String[] args)
+	public static void main(String[] args) // Add your command loop here
 	{
-	    // Add your command loop here
+	    Scanner sc = new Scanner(System.in); //to get user info
+	    boolean stillRunning = true;
+	    	while(stillRunning == true) {
+	    		System.out.println("Are you done?");
+	    		String input = sc.nextLine().toLowerCase(); //Test to see if it works, Takes a input and changes it all to lowercase
+	    			if(input == "quit") {
+	    				stillRunning = false;
+	    			}
+	    		}
 	}
 }

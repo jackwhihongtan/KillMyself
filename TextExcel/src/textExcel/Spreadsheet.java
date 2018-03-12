@@ -1,12 +1,14 @@
+// Jack Tan 3/7/18 2nd Period
 package textExcel;
 
 // Update this file with your own code.
 
 public class Spreadsheet implements Grid
 {
-	private EmptyCell[][] elements;
+	private Cell[][] elements;
 	public Spreadsheet() {
-	elements =  new EmptyCell[20][12];
+		elements = new Cell[20][12];
+			for(int i = 0; i < 20; i++)
 	}
 	@Override
 	public String processCommand(String command)

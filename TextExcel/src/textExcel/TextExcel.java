@@ -15,6 +15,7 @@ public class TextExcel
 	    boolean stillRunning = true;
 	    Spreadsheet newSpreadsheet = new Spreadsheet();
 	    	while(stillRunning == true) {
+	    		System.out.println(newSpreadsheet.processCommand(""));
 	    		System.out.println("Are you done?");
 	    		String input = sc.nextLine().toLowerCase(); //Test to see if it works, Takes a input and changes it all to lowercase
 	    			if(input == "quit") {

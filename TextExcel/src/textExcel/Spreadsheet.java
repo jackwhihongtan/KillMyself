@@ -8,7 +8,11 @@ public class Spreadsheet implements Grid
 	private Cell[][] elements;
 	public Spreadsheet() {
 		elements = new Cell[20][12];
-			for(int i = 0; i < 20; i++)
+			for(int i = 0; i < 20; i++) {
+				for(int j = 0; j < 12; j++) {
+					elements[i][j] = new EmptyCell();
+				}
+			}
 	}
 	@Override
 	public String processCommand(String command)

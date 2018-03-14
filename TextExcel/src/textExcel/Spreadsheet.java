@@ -36,16 +36,18 @@ public class Spreadsheet implements Grid
 	}
 
 	@Override
-	public Cell getCell(Location loc)
+	public Cell getCell(Location loc) //Returns a Cell at the location
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return elements[loc.getCol()][loc.getRow()];
 	}
 
 	@Override
 	public String getGridText()
 	{
-		// TODO Auto-generated method stub
+		String entireSpreadSheet = "";
+		for(int i = 0; i < 21; i++) {
+			
+		}
 		return null;
 	}
 

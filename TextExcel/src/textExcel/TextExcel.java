@@ -11,7 +11,9 @@ public class TextExcel
 
 	public static void main(String[] args) // Add your command loop here
 	{
-	    Scanner sc = new Scanner(System.in); //to get user info
+		TestsALL.Helper th = new TestsALL.Helper();
+    	System.out.println(th.getText());
+		Scanner sc = new Scanner(System.in); //to get user info
 	    boolean stillRunning = true;
 	    Spreadsheet newSpreadsheet = new Spreadsheet();
 	    	while(stillRunning == true) {

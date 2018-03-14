@@ -17,7 +17,6 @@ public class Spreadsheet implements Grid
 	@Override
 	public String processCommand(String command)
 	{
-		// TODO Auto-generated method stub
 		return "";
 	}
 
@@ -45,10 +44,25 @@ public class Spreadsheet implements Grid
 	public String getGridText()
 	{
 		String entireSpreadSheet = "";
-		for(int i = 0; i < 21; i++) {
-			
-		}
-		return null;
+		for(int i = 0; i < 21; i++) { //This for loops creates the numbers on the side
+			if(i == 0) { 
+				entireSpreadSheet += "   |";
+			}else if(i <= 9) {
+				entireSpreadSheet += ""+i+"  |";
+			} else {
+				entireSpreadSheet += ""+i+" |";
+			}
+			for(int j = 0; j < 12; j++) {
+				if(i == 0) { //Prints the Letters in the first row
+				entireSpreadSheet += (""+ (char) (65 + i))+"        |";
+				} else {//Prints the rest of the empty bracket
+					entireSpreadSheet += "         |";
+				}
+			}
+			entireSpreadSheet = entireSpreadSheet + "\n"; //I need help inorder to print a new line afte ri print one row
 	}
-
+		System.out.println(entireSpreadSheet);
+		return entireSpreadSheet;
+		
+	}
 }

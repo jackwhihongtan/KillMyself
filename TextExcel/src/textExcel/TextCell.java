@@ -14,7 +14,7 @@ public class TextCell implements Cell {
 	public String abbreviatedCellText() {
 		int extraSpaces = 0; // To count how many spaces I need to add
 		if (value.length() >= 10) {
-			return value.substring(0, 9);
+			return value.substring(0, 10);
 		} else {
 			extraSpaces = 10 - value.length();
 			for (int j = 0; j < extraSpaces; j++) {

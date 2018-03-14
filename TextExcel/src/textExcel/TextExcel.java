@@ -11,13 +11,12 @@ public class TextExcel
 
 	public static void main(String[] args) // Add your command loop here
 	{
-		TestsALL.Helper th = new TestsALL.Helper();
-    	System.out.println(th.getText());
 		Scanner sc = new Scanner(System.in); //to get user info
 	    boolean stillRunning = true;
 	    Spreadsheet newSpreadsheet = new Spreadsheet();
 	    	while(stillRunning == true) {
 	    		System.out.println(newSpreadsheet.processCommand(""));
+	    		System.out.println(newSpreadsheet.getGridText());
 	    		System.out.println("Are you done?");
 	    		String input = sc.nextLine().toLowerCase(); //Test to see if it works, Takes a input and changes it all to lowercase
 	    			if(input == "quit") {

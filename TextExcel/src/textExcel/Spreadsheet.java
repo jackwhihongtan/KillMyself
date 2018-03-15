@@ -18,8 +18,8 @@ public class Spreadsheet implements Grid {
 	@Override
 	public String processCommand(String command) // Parse and check how many chacreters are in it
 	{
-		String[] commands = command.split(" "); // Split to see how many are worsd are in String command
-		if (commands.length > 1 && commands[0] == "clear") {
+		String[] commands = command.split(" "); // Split to see how many are word are in String command
+		if (commands.length > 1 && commands[0] == "clear") { //Clear and cell
 			int colNumber = Character.toUpperCase(command.charAt(0) - 'A');
 			int rowNumber = (Integer.valueOf(command.substring(1)) - 1); 
 			elements[colNumber][rowNumber] = new EmptyCell();
@@ -32,11 +32,11 @@ public class Spreadsheet implements Grid {
 			}
 			return getGridText();
 		} else if (commands.length == 1) { // Cell Inspection
-			return " \" " + command + " \" "; // This could need changing it feels wrong
+			return "" + command + "\""; // This could need changing it feels wrong
 		} else { //Assiagment of String Values
-			int colNumber = Character.toUpperCase(command.charAt(0) - 'A');
-			int rowNumber = (Integer.valueOf(command.substring(1)) - 1); 
-			elements[colNumber][rowNumber] = new TextCell(commands[2]);
+			String[] name = command.split(" = ", 2); //Fix the name later
+			SpreadsheetLocation assigment = new SpreadsheetLocation(name[0]);
+			elements[assigment.getCol()][assigment.getRow()] = new TextCell(name[1]);
 			return getGridText();
 		}
 	}
@@ -56,6 +56,7 @@ public class Spreadsheet implements Grid {
 	@Override
 	public Cell getCell(Location loc) // Returns a Cell at the location
 	{
+		
 		return elements[loc.getCol()][loc.getRow()];
 	}
 

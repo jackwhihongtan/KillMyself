@@ -18,11 +18,12 @@ public class Spreadsheet implements Grid {
 	@Override
 	public String processCommand(String command) // Parse and check how many chacreters are in it
 	{
+		
 		String[] commands = command.split(" "); // Split to see how many are word are in String command
 		if (commands.length > 1 && commands[0] == "clear") { //Clear and cell
-			int colNumber = Character.toUpperCase(command.charAt(0) - 'A');
-			int rowNumber = (Integer.valueOf(command.substring(1)) - 1); 
-			elements[colNumber][rowNumber] = new EmptyCell();
+			
+			SpreadsheetLocation clearCell = new SpreadsheetLocation(commands[0]);
+			elements[clearCell.getCol()][clearCell.getRow()] = new EmptyCell();
 			return getGridText();
 		} else if (commands[0] == "clear") { //Regular clear
 			for (int i = 0; i < 20; i++) {
@@ -31,7 +32,8 @@ public class Spreadsheet implements Grid {
 				}
 			}
 			return getGridText();
-		} else if (commands.length == 1) { // Cell Inspection
+		} else if (commands.length < 2) { // Cell Inspection
+			SpreadsheetLocation inspectCell = new SpreadsheetLocation(commands[0]);
 			return "" + command + "\""; // This could need changing it feels wrong
 		} else { //Assiagment of String Values
 			String[] name = command.split(" = ", 2); //Fix the name later

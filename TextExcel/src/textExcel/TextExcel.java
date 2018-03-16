@@ -15,6 +15,7 @@ public class TextExcel
 	    boolean stillRunning = true;
 	    Spreadsheet newSpreadsheet = new Spreadsheet();
 	    	while(stillRunning == true) {
+	    		System.out.println("What is your command?");
 	    		String command = sc.nextLine().toLowerCase();
 	    		System.out.println(newSpreadsheet.processCommand(command));
 	    		System.out.println(newSpreadsheet.getGridText());

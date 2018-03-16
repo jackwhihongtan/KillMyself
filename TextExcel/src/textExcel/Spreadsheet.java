@@ -18,14 +18,13 @@ public class Spreadsheet implements Grid {
 	@Override
 	public String processCommand(String command) // Parse and check how many chacreters are in it
 	{
-		
 		String[] commands = command.split(" "); // Split to see how many are word are in String command
-		if (commands.length > 1 && commands[0] == "clear") { //Clear and cell
-			
+		if (commands.length > 1 && commands[0].equalsIgnoreCase("clear")) { //Clear and cell
+			commands[0] = commands[0].toUpperCase();
 			SpreadsheetLocation clearCell = new SpreadsheetLocation(commands[0]);
 			elements[clearCell.getCol()][clearCell.getRow()] = new EmptyCell();
 			return getGridText();
-		} else if (commands[0] == "clear") { //Regular clear
+		} else if (commands[0].equalsIgnoreCase("clear")) { //Regular clear
 			for (int i = 0; i < 20; i++) {
 				for (int j = 0; j < 12; j++) {
 					elements[i][j] = new EmptyCell();
@@ -33,12 +32,14 @@ public class Spreadsheet implements Grid {
 			}
 			return getGridText();
 		} else if (commands.length < 2) { // Cell Inspection
-			SpreadsheetLocation inspectCell = new SpreadsheetLocation(commands[0]);
-			return "" + command + "\""; // This could need changing it feels wrong
+			TextCell inspectCell = new TextCell(commands[0]);
+			return inspectCell.fullCellText(); // This could need changing it feels wrong
 		} else { //Assagment of String Values
 			String[] name = command.split(" = ", 2); //Fix the name later
+			name[0] = name[0].toUpperCase();
+			System.out.println(name[0]);
 			SpreadsheetLocation assigment = new SpreadsheetLocation(name[0]);
-			elements[assigment.getCol()][assigment.getRow()] = new TextCell(name[1]);
+			elements[assigment.getCol()][assigment.getRow()] = new TextCell(name[0]);
 			return getGridText();
 		}
 	}
@@ -58,7 +59,6 @@ public class Spreadsheet implements Grid {
 	@Override
 	public Cell getCell(Location loc) // Returns a Cell at the location
 	{
-		
 		return elements[loc.getCol()][loc.getRow()];
 	}
 

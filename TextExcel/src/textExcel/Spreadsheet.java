@@ -35,7 +35,7 @@ public class Spreadsheet implements Grid {
 		} else if (commands.length < 2) { // Cell Inspection
 			SpreadsheetLocation inspectCell = new SpreadsheetLocation(commands[0]);
 			return "" + command + "\""; // This could need changing it feels wrong
-		} else { //Assiagment of String Values
+		} else { //Assagment of String Values
 			String[] name = command.split(" = ", 2); //Fix the name later
 			SpreadsheetLocation assigment = new SpreadsheetLocation(name[0]);
 			elements[assigment.getCol()][assigment.getRow()] = new TextCell(name[1]);

@@ -16,7 +16,7 @@ public class TextExcel
 	    Spreadsheet newSpreadsheet = new Spreadsheet();
 	    	while(stillRunning == true) {
 	    		System.out.println("What is your command?");
-	    		String command = sc.nextLine().toLowerCase();
+	    		String command = sc.nextLine().toUpperCase();
 	    		System.out.println(newSpreadsheet.processCommand(command));
 	    		System.out.println(newSpreadsheet.getGridText());
 	    		System.out.println("Are you done?");

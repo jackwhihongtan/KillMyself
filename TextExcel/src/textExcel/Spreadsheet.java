@@ -16,32 +16,104 @@ public class Spreadsheet implements Grid {
 	}
 
 	@Override
-	public String processCommand(String command) // Parse and check how many chacreters are in it
+	public String processCommand(String command)
 	{
-		String[] commands = command.split(" "); // Split to see how many are word are in String command
-		if (commands.length > 1 && commands[0].equalsIgnoreCase("clear")) { //Clear and cell
-			commands[0] = commands[0].toUpperCase();
-			SpreadsheetLocation clearCell = new SpreadsheetLocation(commands[0]);
-			elements[clearCell.getCol()][clearCell.getRow()] = new EmptyCell();
-			return getGridText();
-		} else if (commands[0].equalsIgnoreCase("clear")) { //Regular clear
-			for (int i = 0; i < 20; i++) {
-				for (int j = 0; j < 12; j++) {
-					elements[i][j] = new EmptyCell();
-				}
+		public class Spreadsheet implements Grid
+		{
+			private Cell[][] array = new Cell [getRows()][getCols()];
+			
+			public Spreadsheet(){
+				//creates a new spredsheet
+				newSheet();
 			}
-			return getGridText();
-		} else if (commands.length < 2) { // Cell Inspection
-			TextCell inspectCell = new TextCell(commands[0]);
-			return inspectCell.fullCellText(); // This could need changing it feels wrong
-		} else { //Assagment of String Values
-			String[] name = command.split(" = ", 2); //Fix the name later
-			name[0] = name[0].toUpperCase();
-			System.out.println(name[0]);
-			SpreadsheetLocation assigment = new SpreadsheetLocation(name[0]);
-			elements[assigment.getCol()][assigment.getRow()] = new TextCell(name[0]);
-			return getGridText();
-		}
+			
+			@Override
+			public String processCommand(String command)
+			{
+				//checks to see if the input is anything, if not just ends here
+				if(command.length() == 0 || command.equals("quit")){
+					return "";
+				}
+				
+				//splits the input by spaces
+				String[] split = command.split(" ", 3);
+				
+				//gets rid of issue if the input has lowercases or uppercases
+				// for columns
+				split[0] = split[0].toUpperCase();
+				
+				//checks to see if the input has save in it
+				if(split[0].equals("SAVE")){
+					return saveData(split[1]);
+				}
+				
+				// checks for an open in the input
+				if(split[0].equals("OPEN")){
+					return openData(split[1]);
+				}
+				//checks to see if the input is only 3 characters or less
+				//which could only be a cell and returns the value
+				if(split.length == 3){
+					setCellValue(split[0], split[2]);
+					return getGridText();
+				
+				// the first value is all uppercase
+				// checks to see if the first word is clear
+				}else if(split[0].contains("CLEAR")){
+						
+						// means that its clear with a cell so clears the cell
+						if(split.length == 2){
+							clearCell(split[1]);
+							clearCell(split[1]);
+							
+							//returns how the grid looks like afterwards
+							return getGridText();
+							
+						}else{
+							
+							//clears the entire grid by making an entirely new grid
+							newSheet();
+							
+							//returns the new grid
+							return getGridText();
+						}
+						
+					}else{
+						//returns the value of the cell
+						return inspectCell(split[0]);
+					}			
+				}
+
+				@Override
+				public int getRows()
+				{
+					//total number of rows
+					return 20;
+				}
+
+				@Override
+				public int getCols(
+							//returns how the grid looks like afterwards
+							return getGridText();
+							
+						}else{
+							
+							//clears the entire grid by making an entirely new grid
+							for(int i = 0; i < 20; i++) {
+								for (int j = 0; j < 12; j++) {
+									elements[i][j] = new EmptyCell();
+							
+							//returns the new grid
+							return getGridText();
+						}else{
+							//returns the value of the cell
+							SpreadsheetLocation loc = new SpreadsheetLocation(split[0]);
+							
+							return inspectCell(split[0]);
+						}			
+					}
+		
+		
 	}
 
 	@Override

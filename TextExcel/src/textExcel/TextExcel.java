@@ -16,9 +16,8 @@ public class TextExcel
 	    Spreadsheet newSpreadsheet = new Spreadsheet();
 	    	while(stillRunning == true) {
 	    		System.out.println("What is your command?");
-	    		String command = sc.nextLine().toUpperCase();
+	    		String command = sc.nextLine();
 	    		System.out.println(newSpreadsheet.processCommand(command));
-	    		System.out.println(newSpreadsheet.getGridText());
 	    		System.out.println("Are you done?");
 	    		String input = sc.nextLine().toLowerCase(); //Test to see if it works, Takes a input and changes it all to lowercase
 	    			if(input == "quit") {

@@ -6,7 +6,7 @@ public class ValueCell extends RealCells { //Current Sattuus when I input some t
 	public ValueCell(String userInput) {
 		super(userInput);
 		this.userInput = userInput;
-		vaule = Double.valueOf(userInput);
+		vaule = (double) Integer.valueOf(userInput);
 	}
 	public double getDouble() { //it returns 12 like 12.0
 		return vaule;
@@ -14,6 +14,8 @@ public class ValueCell extends RealCells { //Current Sattuus when I input some t
 	public String abbreviatedCellText() {
 		int extraSpaces = 0; // To count how many spaces I need to add
 		String returnString = userInput;
+		System.out.println(userInput);
+		System.out.println(vaule);
 		if (userInput.length() >= 10) {
 			return returnString.substring(0, 10);
 		} else {

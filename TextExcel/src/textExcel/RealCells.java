@@ -1,17 +1,15 @@
 package textExcel;
 
-public class RealCells implements Cell {
+public abstract class RealCells implements Cell {
 	private String userinput;
-	public RealCells(String numberValue) { //Constructor that takes in double
+	public RealCells(String numberValue) { //Constructor that takes int or double Double.parseDouble(userinput);
 		userinput = numberValue;
 	}
-	public double getDouble() {
-		return Integer.valueOf(userinput);
-	}
 	public String abbreviatedCellText() { //May need to change so it print out something same with Full Cell Text
-		return "";
+		return userinput;
 	}
-	public String fullCellText() {
-		return "";
+	public String fullCellText() { //Prints whatever is passed in will need o be override in percent cell
+		return userinput;
 	}
+	public abstract double getDouble(); //My abstarct method
 }

@@ -6,7 +6,7 @@ public class ValueCell extends RealCells { //Current Sattuus when I input some t
 	public ValueCell(String userInput) {
 		super(userInput);
 		this.userInput = userInput;
-		vaule = (double) Integer.valueOf(userInput);
+		vaule = Double.parseDouble(userInput);
 	}
 	public double getDouble() { //it returns 12 like 12.0
 		return vaule;
@@ -27,6 +27,7 @@ public class ValueCell extends RealCells { //Current Sattuus when I input some t
 		}
 	}
 	public String fullCellText() { //I am printing the whole String that was passed in 
-		 return userInput;
+			return ""+vaule+"";
+		}
 	}
-}
+

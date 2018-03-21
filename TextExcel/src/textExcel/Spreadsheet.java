@@ -34,21 +34,33 @@ public class Spreadsheet implements Grid {
 					} 
 				} else if (commands.length >= 3) { // Assigment
 					String[] name = command.split(" = ", 2); //Fix the name later
-						if(name[1].contains(".")) {
+						if(name[1].contains("\"")) {
+							SpreadsheetLocation assigment = new SpreadsheetLocation(name[0].toUpperCase());
+							elements[assigment.getRow()][assigment.getCol()] = new TextCell(name[1].substring(1, name[1].length()-1));
+							//This works only for strings for numbers the index must be from 0 to length
+							System.out.println(elements[assigment.getRow()][assigment.getCol()].fullCellText());
+							return getGridText();
+						} else if(name[1].contains(".")) { //One change needed for This in Percent cell when I type in a decimal and percent it forgets the decimal
 							SpreadsheetLocation assigment = new SpreadsheetLocation(name[0].toUpperCase()); //This is if the decimal then it returns the correct thing for numbers
-							elements[assigment.getRow()][assigment.getCol()] = new TextCell(name[1].substring(0, name[1].length()));
+							elements[assigment.getRow()][assigment.getCol()] = new ValueCell(name[1].substring(0, name[1].length()));
+							return getGridText();
+						} else if(name[1].contains("%")){
+							SpreadsheetLocation assigment = new SpreadsheetLocation(name[0].toUpperCase()); //This is if the decimal then it returns the correct thing for numbers
+							elements[assigment.getRow()][assigment.getCol()] = new PercentCell(name[1].substring(0, name[1].length()));
+							System.out.println(name[1]);
 							return getGridText();
 						} else {
-					System.out.println(name[1]);
 					SpreadsheetLocation assigment = new SpreadsheetLocation(name[0].toUpperCase());
-					elements[assigment.getRow()][assigment.getCol()] = new TextCell(name[1].substring(1, name[1].length()-1));
+					elements[assigment.getRow()][assigment.getCol()] = new ValueCell(name[1].substring(0, name[1].length()));
 					//This works only for strings for numbers the index must be from 0 to length
 					System.out.println(elements[assigment.getRow()][assigment.getCol()].fullCellText());
 					return getGridText(); // This could need changing it feels wrong
 						}
-						} else { // Cell Inspection
-					SpreadsheetLocation assigment = new SpreadsheetLocation(commands[0].toUpperCase());
-					return elements[assigment.getRow()][assigment.getCol()].fullCellText();
+				}
+						 else { // Cell Inspection Test 
+							 SpreadsheetLocation assigment = new SpreadsheetLocation(commands[0].toUpperCase());
+							 return elements[assigment.getRow()][assigment.getCol()].fullCellText(); 
+							 
 				}
 						
 			}

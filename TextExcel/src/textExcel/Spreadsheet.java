@@ -50,11 +50,11 @@ public class Spreadsheet implements Grid {
 							System.out.println(name[1]);
 							return getGridText();
 						} else {
-					SpreadsheetLocation assigment = new SpreadsheetLocation(name[0].toUpperCase());
-					elements[assigment.getRow()][assigment.getCol()] = new ValueCell(name[1].substring(0, name[1].length()));
-					//This works only for strings for numbers the index must be from 0 to length
-					System.out.println(elements[assigment.getRow()][assigment.getCol()].fullCellText());
-					return getGridText(); // This could need changing it feels wrong
+							SpreadsheetLocation assigment = new SpreadsheetLocation(name[0].toUpperCase());
+							elements[assigment.getRow()][assigment.getCol()] = new ValueCell(name[1].substring(0, name[1].length()));
+							//This works only for strings for numbers the index must be from 0 to length
+							System.out.println(elements[assigment.getRow()][assigment.getCol()].fullCellText());
+							return getGridText(); // This could need changing it feels wrong
 						}
 				}
 						 else { // Cell Inspection Test 

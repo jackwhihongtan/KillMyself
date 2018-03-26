@@ -19,8 +19,24 @@ public class FormulaCell extends RealCells{
 	}
 	public double getDoubleValue() { //First split array then check operand
 		
-		for(int i = 2; i < insideParentheses.length; i+=2) {
-			
+		for(int i = 3; i < insideParentheses.length; i += 2) { //It checks the operon first
+			if(insideParentheses[i].equals("+")) {
+				insideParentheses[i+1] = ""+Double.parseDouble(insideParentheses[i-1]) + Double.parseDouble(insideParentheses[i+1])+"";
+				System.out.println(insideParentheses[i+1]);
+				return Double.parseDouble(insideParentheses[i+1]);
+			} else if(insideParentheses[i].equals("-")) {
+				insideParentheses[i+1] = ""+Double.parseDouble(insideParentheses[i-1]) /- Double.parseDouble(insideParentheses[i+1])+""; //You need to find out hwo to concatenate
+				System.out.println(insideParentheses[i+1]);
+				return Double.parseDouble(insideParentheses[i+1]);
+			} else if(insideParentheses[i].equals("/")) {
+				insideParentheses[i+1] = ""+Double.parseDouble(insideParentheses[i-1]) / Double.parseDouble(insideParentheses[i+1])+"";
+				System.out.println(insideParentheses[i+1]);
+				return Double.parseDouble(insideParentheses[i+1]);
+			} else { //This one is multiplying
+				insideParentheses[i+1] = ""+Double.parseDouble(insideParentheses[i-1]) * Double.parseDouble(insideParentheses[i+1])+"";
+				System.out.println(insideParentheses[i+1]);
+				return Double.parseDouble(insideParentheses[i+1]);
+			}
 		}
 	}
 }

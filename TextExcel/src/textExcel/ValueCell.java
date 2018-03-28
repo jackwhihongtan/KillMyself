@@ -11,7 +11,7 @@ public class ValueCell extends RealCells { // Current Sattuus when I input some 
 		value = Double.parseDouble(userInput);
 	}
 
-	public double getDouble() { // it returns 12 like 12.0
+	public double getDoubleValue() { // it returns 12 like 12.0
 		return value;
 	}
 

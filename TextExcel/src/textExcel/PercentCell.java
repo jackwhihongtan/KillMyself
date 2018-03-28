@@ -23,7 +23,7 @@ public class PercentCell extends RealCells{
 		number = number/100;
 		return ""+number+"";
 	}
-	public double getDouble(){
+	public double getDoubleValue(){
 		return number;
 	}
 }

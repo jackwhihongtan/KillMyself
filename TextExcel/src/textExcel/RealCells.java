@@ -11,5 +11,5 @@ public abstract class RealCells implements Cell {
 	public String fullCellText() { //Prints whatever is passed in will need o be override in percent cell
 		return userinput;
 	}
-	public abstract double getDouble(); //My abstarct method
+	public abstract double getDoubleValue(); //My abstarct method
 }

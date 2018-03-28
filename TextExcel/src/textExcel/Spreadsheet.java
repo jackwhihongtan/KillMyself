@@ -32,14 +32,17 @@ public class Spreadsheet implements Grid {
 						}
 						return getGridText();
 					} 
-				} else if (commands.length >= 3) { // Assigment
+				}
+				else if (commands.length >= 3) { // Assigment
 					String[] name = command.split(" = ", 2); //Fix the name later
-						if(name[1].contains("(")) { //Checks for a parentheses first and makes a new FormulaCell
-							SpreadsheetLocation assigment = new SpreadsheetLocation(name[0].toUpperCase());
-							elements[assigment.getRow()][assigment.getCol()] = new FormulaCell(name[1].substring(0, name[1].length()-1));
-							return getGridText();
-						}
-						else if(name[1].contains("\"")) {
+					if(name[1].contains("(")) { //Checks for a parentheses first and makes a new FormulaCell
+						System.out.println(name[1]);
+						System.out.println(name[1].substring(2, name[1].length()-2));
+						System.out.println(name[0]);
+						SpreadsheetLocation assigment = new SpreadsheetLocation(name[0].toUpperCase());
+						elements[assigment.getRow()][assigment.getCol()] = new FormulaCell(name[1].substring(2, name[1].length()-2)); //This part could be wrong it may fix other errors
+						return getGridText();
+					}else if(name[1].contains("\"")) {
 							SpreadsheetLocation assigment = new SpreadsheetLocation(name[0].toUpperCase());
 							elements[assigment.getRow()][assigment.getCol()] = new TextCell(name[1].substring(1, name[1].length()-1));
 							//This works only for strings for numbers the index must be from 0 to length

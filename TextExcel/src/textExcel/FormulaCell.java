@@ -1,12 +1,10 @@
 package textExcel;
 
 public class FormulaCell extends RealCells{
-	private String userInput;
-	private String[] insideParentheses; //It is an array but still has the parentheses
+	private String userInput;  //It is an array but still has the parentheses
 	public FormulaCell(String newValue) { //Just an outline
 		super(newValue);
-		insideParentheses = newValue.split(" ");
-		userInput = "( "+newValue+" )";
+		userInput = newValue;
 	}
 	public String abbreviatedCellText() { //May need to change so it print out something same with Full Cell Text
 		double formatString = getDoubleValue();
@@ -25,10 +23,11 @@ public class FormulaCell extends RealCells{
 	}
 	
 	public String fullCellText() { //Prints whatever is passed in will need o be override in percent cell
-		return userInput;
+		return "( "+userInput+" )";
 	}
 	public double getDoubleValue() { //First split array then check operand
 		double totalValue = 0;
+		String[] insideParentheses = userInput.split(" ");
 		if(insideParentheses.length == 1) {
 			return Double.parseDouble(insideParentheses[0]);
 		}

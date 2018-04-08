@@ -1,6 +1,6 @@
 package textExcel;
 
-public class ValueCell extends RealCells { // Current Sattuus when I input some thing long it pritns everything but the
+public class ValueCell extends RealCell { // Current Sattuus when I input some thing long it pritns everything but the
 											// first number
 	private String userInput; // This will be used for the two methods thatr eturn strings
 	private double value;

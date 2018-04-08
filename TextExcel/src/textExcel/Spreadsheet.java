@@ -40,7 +40,7 @@ public class Spreadsheet implements Grid {
 						System.out.println(name[1].substring(2, name[1].length()-2));
 						System.out.println(name[0]);
 						SpreadsheetLocation assigment = new SpreadsheetLocation(name[0].toUpperCase());
-						elements[assigment.getRow()][assigment.getCol()] = new FormulaCell(name[1].substring(2, name[1].length()-2)); //This part could be wrong it may fix other errors
+						elements[assigment.getRow()][assigment.getCol()] = new FormulaCell(name[1].substring(2, name[1].length()-2), this); //This part could be wrong it may fix other errors
 						return getGridText();
 					}else if(name[1].contains("\"")) {
 							SpreadsheetLocation assigment = new SpreadsheetLocation(name[0].toUpperCase());
